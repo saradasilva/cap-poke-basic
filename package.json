@@ -1,5 +1,5 @@
 {
-  "name": "pokemon",
+  "name": "cap-poke-basic",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -38,6 +38,16 @@
     "rules": {
       "no-console": "off",
       "require-atomic-updates": "off"
+    }
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "sqlite.db"
+        }
+      }
     }
   }
 }
