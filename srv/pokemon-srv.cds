@@ -9,4 +9,6 @@ service pokemon {
     entity pokemones as projection on my.pokemones;
     entity items as projection on my.items;
     entity ciudades as select from my.ciudades where num_casas > 0;
+
+    function getAllCities() returns array of ciudades;
 }
