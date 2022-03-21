@@ -43,6 +43,12 @@
   },
   "cds": {
     "requires": {
+        "pokedex":{
+            "kind": "rest",
+            "credentials": {
+                "url": "https://pokeapi.co/api/v2/"
+            }
+        },
       "db": {
         "kind": "hana",
         "model": "*"
