@@ -23,7 +23,7 @@ entity entrenadores : cuid, managed {
 }
 
 entity mochilas : cuid {
-    misItems  : array of item;
+    misItems  : array of item null;
 }
 
 entity ciudades {
