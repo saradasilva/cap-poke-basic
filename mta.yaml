@@ -26,6 +26,8 @@ modules:
           srv-url: ${default-url}
     requires:
       - name: cap-poke-basic-db
+      - name: cap-poke-basic-dest
+      - name: cap-poke-basic-uaa
 
   - name: cap-poke-basic-db-deployer
     type: hdb
@@ -43,3 +45,15 @@ resources:
       service-plan: hdi-shared
     properties:
       hdi-service-name: ${service-name}
+  - name: cap-poke-basic-dest
+    type: org.cloudfoundry.managed-service
+    parameters:
+     service: destination
+     service-plan: lite
+     service-name: cap-poke-basic-dest
+  - name: cap-poke-basic-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+     service: xsuaa
+     service-plan: application
+     service-name: cap-poke-basic-uaa

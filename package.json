@@ -43,15 +43,22 @@
   },
   "cds": {
     "requires": {
-        "pokedex":{
-            "kind": "rest",
-            "credentials": {
-                "url": "https://pokeapi.co/api/v2/"
-            }
-        },
+      "pokedex": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "pokedex_api"
+        }
+      },
       "db": {
         "kind": "hana",
         "model": "*"
+      },
+      "northwind": {
+        "kind": "odata-v2",
+        "model": "srv/external/northwind",
+        "credentials": {
+            "destination": "northwind_odata"
+          }
       }
     },
     "hana": {

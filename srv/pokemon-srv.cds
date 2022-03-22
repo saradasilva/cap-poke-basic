@@ -1,5 +1,6 @@
 namespace cappokebasic.srv;
 using { cappokebasic.db as my } from '../db/db';
+using { northwind } from './external/northwind.csn';
 
 service pokemon {
     extend my.entrenadores with {
@@ -29,6 +30,9 @@ service pokemon {
     entity pokemones as projection on my.pokemones;
     entity items as projection on my.items;
     entity ciudades as select from my.ciudades where num_casas > 0;
+
+
+    entity Products as projection on northwind.Products;
 
     function getAllCities() returns array of ciudades;
 }

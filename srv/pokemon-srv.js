@@ -1,6 +1,10 @@
 const cds = require('@sap/cds')
-module.exports = function () {
+module.exports = async function () {
     //const { ciudades } = this.entities;
+    const { Products } = this.entities;
+    const service = await cds.connect.to('northwind');
+    const pokedexApi = await cds.connect.to("pokedex");
+
     this.before('CREATE', 'entrenadores', (req) => {
         req.data.level = 1;
         /*if (!req.data.level) {
@@ -9,7 +13,7 @@ module.exports = function () {
     });
     this.on('READ', 'generation', async (req) => {
         let sQuery;
-        const pokedexApi = await cds.connect.to("pokedex");
+        
         if (req.data.id) {
             sQuery = "/generation/" + req.data.id;
         } else {
@@ -22,5 +26,9 @@ module.exports = function () {
         const tx = cds.transaction(req);
         let cities = await tx.run(SELECT.from('ciudades'));
         return cities;
+    });
+
+    this.on('READ', Products , async (req) => {
+        return service.tx(req).run(req.query);
     });
 }
