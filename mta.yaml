@@ -57,3 +57,7 @@ resources:
      service: xsuaa
      service-plan: application
      service-name: cap-poke-basic-uaa
+     config: {
+       xsappname: cap-poke-basic-uaa,  
+       tenant-mode: dedicated
+     }

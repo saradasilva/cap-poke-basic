@@ -2,6 +2,7 @@ namespace cappokebasic.srv;
 using { cappokebasic.db as my } from '../db/db';
 using { northwind } from './external/northwind.csn';
 
+@requires: 'authenticated-user'
 service pokemon {
     extend my.entrenadores with {
         level : Integer
@@ -26,7 +27,10 @@ service pokemon {
         version_groups: array of nameUrl;
         results: array of nameUrl;
     }
-    entity entrenadores as projection on my.entrenadores;
+    entity entrenadores @(restrict:
+    [{ grant: ['READ', 'WRITE'], to: 'Admin' },
+    { grant: 'READ', to: 'Player'}] ) 
+    as projection on my.entrenadores;
     entity pokemones as projection on my.pokemones;
     entity items as projection on my.items;
     entity ciudades as select from my.ciudades where num_casas > 0;

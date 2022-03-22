@@ -1,69 +1,74 @@
 {
-  "name": "cap-poke-basic",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/cds": "^5",
-    "@sap/cds-odata-v2-adapter-proxy": "^1.8.11",
-    "express": "^4",
-    "hdb": "^0.18.3"
-  },
-  "devDependencies": {
-    "sqlite3": "^5.0.2"
-  },
-  "scripts": {
-    "start": "cds run"
-  },
-  "eslintConfig": {
-    "extends": "eslint:recommended",
-    "env": {
-      "es2020": true,
-      "node": true,
-      "jest": true,
-      "mocha": true
+    "name": "cap-poke-basic",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^5",
+        "@sap/cds-odata-v2-adapter-proxy": "^1.8.11",
+        "@sap/xssec": "^3.2.13",
+        "express": "^4",
+        "hdb": "^0.18.3",
+        "passport": "^0.5.2"
     },
-    "globals": {
-      "SELECT": true,
-      "INSERT": true,
-      "UPDATE": true,
-      "DELETE": true,
-      "CREATE": true,
-      "DROP": true,
-      "CDL": true,
-      "CQL": true,
-      "CXL": true,
-      "cds": true
+    "devDependencies": {
+        "sqlite3": "^5.0.2"
     },
-    "rules": {
-      "no-console": "off",
-      "require-atomic-updates": "off"
-    }
-  },
-  "cds": {
-    "requires": {
-      "pokedex": {
-        "kind": "rest",
-        "credentials": {
-          "destination": "pokedex_api"
+    "scripts": {
+        "start": "cds run"
+    },
+    "eslintConfig": {
+        "extends": "eslint:recommended",
+        "env": {
+            "es2020": true,
+            "node": true,
+            "jest": true,
+            "mocha": true
+        },
+        "globals": {
+            "SELECT": true,
+            "INSERT": true,
+            "UPDATE": true,
+            "DELETE": true,
+            "CREATE": true,
+            "DROP": true,
+            "CDL": true,
+            "CQL": true,
+            "CXL": true,
+            "cds": true
+        },
+        "rules": {
+            "no-console": "off",
+            "require-atomic-updates": "off"
         }
-      },
-      "db": {
-        "kind": "hana",
-        "model": "*"
-      },
-      "northwind": {
-        "kind": "odata-v2",
-        "model": "srv/external/northwind",
-        "credentials": {
-          "destination": "northwind_odata"
-        }
-      }
     },
-    "hana": {
-      "deploy-format": "hdbtable"
+    "cds": {
+        "requires": {
+            "pokedex": {
+                "kind": "rest",
+                "credentials": {
+                    "destination": "pokedex_api"
+                }
+            },
+            "db": {
+                "kind": "hana",
+                "model": "*"
+            },
+            "uaa": {
+                "kind": "xsuaa"
+            },
+            "northwind": {
+                "kind": "odata-v2",
+                "model": "srv/external/northwind",
+                "credentials": {
+                    "destination": "northwind_odata"
+                }
+            }
+        },
+        "hana": {
+            "deploy-format": "hdbtable"
+        }
     }
-  }
 }

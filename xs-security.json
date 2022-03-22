@@ -1,0 +1,33 @@
+{
+    "xsappname": "cap-poke-basic-uaa",
+    "tenant-mode": "dedicated",
+    "scopes": [
+        {
+            "name": "$XSAPPNAME.Admin",
+            "description": "Admin"
+        },
+        {
+            "name": "$XSAPPNAME.Player",
+            "description": "Player"
+        }
+    ],
+    "attributes": [],
+    "role-templates": [
+        {
+            "name": "Admin",
+            "description": "generated",
+            "scope-references": [
+                "$XSAPPNAME.Admin"
+            ],
+            "attribute-references": []
+        },
+        {
+            "name": "Player",
+            "description": "generated",
+            "scope-references": [
+                "$XSAPPNAME.Player"
+            ],
+            "attribute-references": []
+        }
+    ]
+}
