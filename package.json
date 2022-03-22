@@ -7,6 +7,7 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.8.11",
     "express": "^4",
     "hdb": "^0.18.3"
   },
@@ -57,8 +58,8 @@
         "kind": "odata-v2",
         "model": "srv/external/northwind",
         "credentials": {
-            "destination": "northwind_odata"
-          }
+          "destination": "northwind_odata"
+        }
       }
     },
     "hana": {

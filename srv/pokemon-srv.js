@@ -1,4 +1,4 @@
-const cds = require('@sap/cds')
+const cds = require('@sap/cds');
 module.exports = async function () {
     //const { ciudades } = this.entities;
     const { Products } = this.entities;
